@@ -10,7 +10,7 @@ class UtilController extends BaseController {
       width: 100,
       height: 40,
       noise: 3
-    });
+    })
     this.ctx.session.captcha = captcha.text
     // console.log(captcha.text);
     this.ctx.response.type = "image/svg+xml"
@@ -36,11 +36,11 @@ class UtilController extends BaseController {
   }
 
   async uploadfile() {
-    console.log('ipload=============', );
+    console.log('ipload=============', )
     const {ctx} = this
     const {name} = ctx.request.body
     const [file] = ctx.request.files
-    console.log(file.filepath, this.config.UPLOAD_DIR);
+    console.log(file.filepath, this.config.UPLOAD_DIR)
     await fse.move(file.filepath, this.config.UPLOAD_DIR+'/'+file.filename)
     this.success({
       url: `/public/${file.filename}`

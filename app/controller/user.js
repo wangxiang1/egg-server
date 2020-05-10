@@ -20,7 +20,7 @@ class UserController extends BaseController{
       return this.error('验证码错误')
     }
 
-    console.log(emailcode, ctx.session.emailcode );
+    console.log(emailcode, ctx.session.emailcode )
     if(emailcode !== ctx.session.emailcode){
       return this.error('邮箱验证码错误')
     }
